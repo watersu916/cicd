@@ -1,0 +1,16 @@
+name: My-First-Automation  # 액션의 이름
+
+on: [push]  # 언제 실행할까? -> 내가 파일을 저장(push)할 때마다!
+
+jobs:
+  check-system:           # 작업의 이름
+    runs-on: ubuntu-latest  # 깃허브가 빌려주는 무료 리눅스 컴퓨터에서 실행
+    steps:
+      - name: 내 코드 복사해오기
+        uses: actions/checkout@v4  # 저장소의 파일을 리눅스 컴퓨터로 가져오는 기본 액션
+
+      - name: 리눅스 버전 확인
+        run: cat /etc/os-release  # 리눅스 명령어를 직접 실행해봅니다.
+
+      - name: 현재 위치 파일 목록 보기
+        run: ls -al
